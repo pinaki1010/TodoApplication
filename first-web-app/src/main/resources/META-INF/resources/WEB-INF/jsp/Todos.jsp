@@ -8,6 +8,7 @@
 <title>List of Todos are</title>
 </head>
 <body>
+<%@include file="common/navigation.jspf"  %>
 <div class="container">
 
 <h1>Enter Todo details</h1>

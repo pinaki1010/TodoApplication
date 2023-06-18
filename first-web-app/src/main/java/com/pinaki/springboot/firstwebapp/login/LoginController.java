@@ -30,26 +30,26 @@ public class LoginController {
 //		return "login";
 //	}
 	
-	@RequestMapping(value="login",method=RequestMethod.GET)
-	public String gotoLoginPage() {
-		
-		return "login";
+	@RequestMapping(value="/",method=RequestMethod.GET)
+	public String gotoLoginPage(ModelMap map) {
+		map.put("name", "Pinaki");
+		return "Welcome";
 	}
 	
-	@RequestMapping(value="login",method=RequestMethod.POST)
-	public String gotoDashboardPage(@RequestParam String name,@RequestParam String password,ModelMap model) {
-		
-		if(loginAuthenticationService.authenticateService(name, password)) {
-			
-			model.put("name", name);
-			model.put("password", password);
-			
-			return "Welcome";
-			
-		}
-		
-		model.put("errormsg","Please check your name and password again");
-		return "login";
-	}
+//	@RequestMapping(value="login",method=RequestMethod.POST)
+//	public String gotoDashboardPage(@RequestParam String name,@RequestParam String password,ModelMap model) {
+//		
+//		if(loginAuthenticationService.authenticateService(name, password)) {
+//			
+//			model.put("name", name);
+//			model.put("password", password);
+//			
+//			return "Welcome";
+//			
+//		}
+//		
+//		model.put("errormsg","Please check your name and password again");
+//		return "login";
+//	}
 	
 }
