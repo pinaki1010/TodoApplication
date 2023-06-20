@@ -61,6 +61,7 @@ public class Todo {
 		this.localDate = localDate;
 		this.done = done;
 	}
+	public Todo() {}
 	
 
 }
