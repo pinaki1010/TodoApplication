@@ -15,10 +15,10 @@
 <table class="table">
 	<thead>
 		
-		<th>subject</th>
-		<th>description</th>
-		<th>done</th>
-		<th>localDate</th>
+		<th>Username</th>
+		<th>Description</th>
+		<th>Done</th>
+		<th>LocalDate</th>
 		<th> </th>
 		<th></th>
 	</thead>

@@ -3,6 +3,8 @@ package com.pinaki.springboot.firstwebapp.login;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,8 +34,15 @@ public class LoginController {
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String gotoLoginPage(ModelMap map) {
-		map.put("name", "Pinaki");
+		map.put("name", getLoginUserName());
 		return "Welcome";
+	}
+	
+	public String getLoginUserName() {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		return authentication.getName();
 	}
 	
 //	@RequestMapping(value="login",method=RequestMethod.POST)

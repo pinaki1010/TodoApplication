@@ -3,6 +3,8 @@ package com.pinaki.springboot.firstwebapp.todo;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -27,12 +29,15 @@ public class TodoController {
 	@RequestMapping("list-todos")
 	public String listAllTodos(ModelMap map) {
 		
-		List<Todo> todos = todoService.findByUserName("Pinaki");
+		String username = getLoggedInUserName(map);
+		List<Todo> todos = todoService.findByUserName(username);
 		map.addAttribute("todos", todos);	
 		
 		return "listTodos";
 	}
 	
+	
+
 	@RequestMapping(value="add-todo" ,method=RequestMethod.GET)
 	public String addTodos(ModelMap map) {
 		String username= (String)map.get("name");
@@ -81,5 +86,12 @@ public class TodoController {
 		map.addAttribute("todos",todo);
 		return "Todos";
 	}
+	
+	   //Current Logged In user given
+	    private String getLoggedInUserName(ModelMap map) {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			return authentication.getName();
+		}
 
 }
