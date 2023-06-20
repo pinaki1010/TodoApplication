@@ -2,6 +2,8 @@
 
 This is a simple to-do application built using Java Spring Boot framework. It provides basic CRUD (Create, Read, Update, Delete) operations for managing a to-do list. The application follows the RESTful API architecture and uses an in-memory H2 database for data persistence.
 
+<img width="955" alt="TodoApplication_TodoListPage" src="https://github.com/pinaki1010/TodoApplication/assets/42297763/c4fb7409-a8f2-4147-b560-2625a2eab78e">
+
 ## Prerequisites
 
 To run this application, you need to have the following installed:
@@ -95,6 +97,7 @@ public class Task {
     // Other fields and getters/setters
 }
 ```
+<img width="949" alt="TodoApplication_UpdatePage" src="https://github.com/pinaki1010/TodoApplication/assets/42297763/94409263-b15c-4518-b01f-dea16252af6c">
 
 ## Configuration
 
